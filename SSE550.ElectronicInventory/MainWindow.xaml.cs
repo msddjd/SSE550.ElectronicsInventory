@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SSE550.ElectronicInventory.Classes;
+using SSE550.ElectronicInventory.Interfaces;
 
 namespace SSE550.ElectronicInventory
 {
@@ -20,8 +22,8 @@ namespace SSE550.ElectronicInventory
     /// </summary>    
     public partial class MainWindow : Window
     {
-        List<Electronics> Inventory = new List<Electronics>();
-        List<Electronics> Matches = new List<Electronics>();
+        List<Electronic> Inventory = new List<Electronic>();
+        List<Electronic> Matches = new List<Electronic>();
         
         public MainWindow()
         {
@@ -59,11 +61,44 @@ namespace SSE550.ElectronicInventory
             Acer.addFeature("SSD");
             Inventory.Add(Acer);
 
-            //Powering On All Devices
-            ResultsBox.Items.Add(Westinghouse.powerOn());
-            ResultsBox.Items.Add(SamsungBD.powerOn());
-            ResultsBox.Items.Add(Acer.powerOn());
+
+            ElectronicGroomer razor = new ElectronicGroomer();
+            razor.Brand = "Phillips Norelco Shaver";
+            razor.Model = "PT724/41";
+            razor.Price = 39.95M;
+            razor.Condition = "new";
+            Inventory.Add(razor);
+
+            Cellphone metro = new Cellphone();
+            metro.Brand = "Samsung Admire";
+            metro.Model = "SCH-R720";
+            metro.Price = 39.99M;
+            metro.Condition = "used";
+            metro.service_provider = "Metro PCS";
+            Inventory.Add(metro);
             
+            
+            //Powering On All Devices
+            foreach (Electronic device in Inventory)
+            ResultsBox.Items.Add(device.powerOn());
+            
+            //Performing a Phone Call on capable devices
+            foreach (Electronic device in Inventory)
+            {
+                if (device is ICall)
+                    ResultsBox.Items.Add((device as ICall).call(7703458888));
+            }           
+
+            //Powering Off all Devices
+            foreach (Electronic device in Inventory)
+            ResultsBox.Items.Add(device.powerOff());
+                        
+            //Charging devices that are chargeable                        
+            foreach (Electronic device in Inventory)
+            {
+                if(device is ICharge)
+                ResultsBox.Items.Add((device as ICharge).charge(3));                
+            }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -99,14 +134,14 @@ namespace SSE550.ElectronicInventory
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ResultsBox.Items.Clear();            
-            foreach (Electronics device in Inventory)
+            foreach (Electronic device in Inventory)
             {
                 
                 if ( (BrandBox.Text.CompareTo(device.Brand) == 0)||( ConditionBox.Text.CompareTo(device.Condition)== 0)||( device.findFeature(FeatureBox.Text) ) )
                     Matches.Add(device);                
             }
 
-            foreach (Electronics device in Matches)
+            foreach (Electronic device in Matches)
                 ResultsBox.Items.Add(device.Brand + ":" + device.Model + ":" + device.Price.ToString("c"));
 
             Matches.Clear();

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SSE550.ElectronicInventory
+namespace SSE550.ElectronicInventory.Classes
 {
-    class BluRayPlayer : Electronics
+    class Tablet : ComputingDevice
     {
     }
 }

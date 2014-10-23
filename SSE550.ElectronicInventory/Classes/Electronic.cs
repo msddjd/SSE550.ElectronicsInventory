@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace SSE550.ElectronicInventory
+namespace SSE550.ElectronicInventory.Classes
 {
-    abstract class Electronics
+    abstract class Electronic
     {
         decimal price;
         int power_consumption;
@@ -115,12 +115,12 @@ namespace SSE550.ElectronicInventory
         
         public string powerOn()
         {
-            return "Powering On " + this.brand + " Electronic";
+            return "Powering On " + this.brand + " " + this.ToString();
         }
 
         public string powerOff()
         {
-            return "Powering Off " + this.brand + " Electronic";
+            return "Powering Off " + this.brand + " " + this.ToString();
         }
     }
 }

@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SSE550.ElectronicInventory.Interfaces;
 
-namespace SSE550.ElectronicInventory
+namespace SSE550.ElectronicInventory.Classes
 {
-    class ComputingDevices : Electronics
+    abstract class ComputingDevice : Electronic, ICharge
     {
+        public float battery_life
+        { get; set; }
+
+        public string charge(int hours)
+        {
+            return "Charging " + this.ToString() + " For " + hours + " hours";
+        }        
+
         private
             int hd_size, 
-                ram;
-            float battery_life;
+                ram;            
             string cpu,
                 disk_type;
 

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SSE550.ElectronicInventory
+namespace SSE550.ElectronicInventory.Classes
 {
-    class Television : Electronics
+    class Television : Electronic
     {
         private string technology;
 
@@ -17,5 +17,10 @@ namespace SSE550.ElectronicInventory
             set
             { technology = value; }            
         }
+        public string powerOff()
+        {
+            return "Powering Off " + this.ToString();
+        }
+
     }
 }
