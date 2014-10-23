@@ -41,6 +41,7 @@ namespace SSE550.ElectronicInventory
             Westinghouse.Model = "UW40TA2W";
             Inventory.Add(Westinghouse);
             
+            
             BluRayPlayer SamsungBD = new BluRayPlayer();
             SamsungBD.Brand = "Samsung";
             SamsungBD.Model = "BD-F5900";
@@ -57,6 +58,11 @@ namespace SSE550.ElectronicInventory
             Acer.Condition = "new";
             Acer.addFeature("SSD");
             Inventory.Add(Acer);
+
+            //Powering On All Devices
+            ResultsBox.Items.Add(Westinghouse.powerOn());
+            ResultsBox.Items.Add(SamsungBD.powerOn());
+            ResultsBox.Items.Add(Acer.powerOn());
             
         }
 

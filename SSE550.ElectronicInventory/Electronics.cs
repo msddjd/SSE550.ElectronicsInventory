@@ -2,7 +2,7 @@
 
 namespace SSE550.ElectronicInventory
 {
-    class Electronics
+    abstract class Electronics
     {
         decimal price;
         int power_consumption;
@@ -111,8 +111,16 @@ namespace SSE550.ElectronicInventory
                 return true;
             else
                 return false;
-        }
+        }        
         
+        public string powerOn()
+        {
+            return "Powering On " + this.brand + " Electronic";
+        }
 
+        public string powerOff()
+        {
+            return "Powering Off " + this.brand + " Electronic";
+        }
     }
 }
