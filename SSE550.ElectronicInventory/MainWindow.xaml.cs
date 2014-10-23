@@ -62,13 +62,6 @@ namespace SSE550.ElectronicInventory
             Inventory.Add(Acer);
 
 
-            ElectronicGroomer razor = new ElectronicGroomer();
-            razor.Brand = "Phillips Norelco Shaver";
-            razor.Model = "PT724/41";
-            razor.Price = 39.95M;
-            razor.Condition = "new";
-            Inventory.Add(razor);
-
             Cellphone metro = new Cellphone();
             metro.Brand = "Samsung Admire";
             metro.Model = "SCH-R720";
@@ -76,11 +69,21 @@ namespace SSE550.ElectronicInventory
             metro.Condition = "used";
             metro.service_provider = "Metro PCS";
             Inventory.Add(metro);
+
+            ElectronicGroomer razor = new ElectronicGroomer();
+            razor.Brand = "Phillips Norelco Shaver";
+            razor.Model = "PT724/41";
+            razor.Price = 39.95M;
+            razor.Condition = "new";
+            Inventory.Add(razor);
             
             
             //Powering On All Devices
             foreach (Electronic device in Inventory)
             ResultsBox.Items.Add(device.powerOn());
+            ResultsBox.Items.Add("");                        
+            ResultsBox.Items.Add(razor.powerOn());
+
             
             //Performing a Phone Call on capable devices
             foreach (Electronic device in Inventory)

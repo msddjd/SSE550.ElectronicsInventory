@@ -5,14 +5,14 @@
     <Grid Margin="0,0,2,-17">
         <Image HorizontalAlignment="Left" Width="972" Height="533" Source="Image/blue.png" Margin="-10,-10,0,0" RenderTransformOrigin="0.602,0.227"/>
         <TextBlock Margin="330,10,329,0" TextWrapping="Wrap" Text="Electronics Search" VerticalAlignment="Top" Height="45" FontSize="30" Foreground="White"/>
-        <ListBox x:Name="ResultsBox" HorizontalAlignment="Left" Background="Transparent" Foreground="Black" Height="285" Margin="485,130,0,0" VerticalAlignment="Top" Width="400" SelectionChanged="ListBox_SelectionChanged"/>
-        <Label Content="Results" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="622,95,0,0" VerticalAlignment="Top" Height="30" Width="73" RenderTransformOrigin="1.81,0.4"/>
+        <ListBox x:Name="ResultsBox" HorizontalAlignment="Left" Background="Transparent" Foreground="Black" Height="285" Margin="330,130,0,0" VerticalAlignment="Top" Width="555" SelectionChanged="ListBox_SelectionChanged"/>
+        <Label Content="Results" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="550,82,0,0" VerticalAlignment="Top" Height="43" Width="83" RenderTransformOrigin="1.81,0.4"/>
         <TextBox x:Name="BrandBox" HorizontalAlignment="Left" Background="Transparent" Height="23" Margin="40,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1"/>
         <TextBox x:Name="MaxPriceBox" HorizontalAlignment="Left" Background="Transparent" Height="23" Margin="40,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2"/>
         <TextBox x:Name="ConditionBox" HorizontalAlignment="Left" Background="Transparent" Height="23" Margin="40,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="FeatureBox" HorizontalAlignment="Left" Background="Transparent" Height="23" Margin="40,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="DeviceTypeBox" HorizontalAlignment="Left" Background="Transparent" Foreground="Black" Margin="40,130,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,1.667" SelectionChanged="ComboBox_SelectionChanged">
-            <ComboBoxItem Content="Television" HorizontalAlignment="Left" Width="118" Selected="ComboBoxItem_Selected"/>            
+            <ComboBoxItem Content="Television" HorizontalAlignment="Left" Width="118" Selected="ComboBoxItem_Selected"/>
             <ComboBoxItem Content="Tablet" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Laptop" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="Blu-ray Player" HorizontalAlignment="Left" Width="118"/>
